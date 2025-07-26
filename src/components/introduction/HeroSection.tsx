@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin, Route } from 'lucide-react';
 import profileImage from '@/assets/ishfaq-image-main copy.jpeg';
 import { TypingAnimationText } from './TypingAnimationText';
 import { FlippingCard } from './FlippingCard';
@@ -8,17 +8,31 @@ import styled from 'styled-components';
 
 const HeroSection = () => {
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:your-email@example.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/ishfaqmalik441', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ishfaq-malik-46bb7a201/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:ishfaqmalik441@gmail.com', label: 'Email' },
   ];
 
   const scrollToProjects = () => {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleDownloadCV = () => {
+    // Create a link element
+    const link = document.createElement('a');
+    link.href = 'CV-ISHFAQ-MALIK.pdf'; // Update this path to match your CV file name
+    link.download = 'CV-ISHFAQ-MALIK.pdf'; // This will be the filename when downloaded
+    link.target = '_blank';
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const texts = [
     'Passionate Full Stack Developer with expertise in modern front-end and back-end technologies.',
+    'Currently learning about ML/DL, Ruby on Rails, Python, and several Backend tools and technologies',
     'Always creating innovative solutions and bringing ideas to life through clean, efficient code.',
     'Currently studying Bachelor of Sceince in Computational Finance and Financial Technology at City University of Hong Kong.',
   ]
@@ -57,8 +71,9 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth hover:scale-105"
+                onClick={handleDownloadCV}
               >
-                <Download className="mr-2 h-4 w-4" />
+                <Download className="mr-2 h-4 w-4"  />
                 Download CV
               </Button>
             </div>
@@ -73,7 +88,7 @@ const HeroSection = () => {
                   asChild
                   className="hover:text-primary hover:bg-primary/10 transition-smooth hover:scale-110"
                 >
-                  <a href={social.href} aria-label={social.label}>
+                  <a href={social.href} aria-label={social.label} target="_blank">
                     <social.icon className="h-5 w-5" />
                   </a>
                 </Button>

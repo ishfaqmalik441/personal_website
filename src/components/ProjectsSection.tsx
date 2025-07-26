@@ -7,35 +7,35 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: 'Personal Website',
-      description: 'A personal resume website built from the ground-up in a modern and clean user-interface and a smooth user-experience.',
+      description: 'My personal website built using React, Typescript, Vite, Tailwind CSS, and styled-components. Boasts a modern design with interactive and dynamic features! The website introduces me as a person and is my resume, it showcases my work experience, education history and skills.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
       technologies: ['React', 'TypeScript', 'HTML', 'CSS', 'Node.js', 'Vite', 'GitHub'],
-      githubUrl: '#',
-      featured: true,
+      githubUrl: 'https://github.com/ishfaqmalik441/personal_website',
+      showGitHubButton: true,
     },
     {
       title: 'HealthHub',
       description: 'A full-stack health and fitness application that helps user track their health and workout history and fitness goals, and provides them clean visualizations of their health data as well as personalized recommendations to help them achieve their goals. Also provides a custom workout logging calendar where you can track your workout streaks and days worked out in a certain period all built in-app',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
       technologies: ['Python', 'Flask', 'SQL', 'MongoDB', 'HTML', 'CSS'],
-      githubUrl: '#',
-      featured: true,
+      githubUrl: 'https://github.com/ishfaqmalik441/HealthHub',
+      showGitHubButton: true,
     },
     {
       title: 'Student Residence Hall Web Application',
       description: 'A front-end website built for my student residence hall at City University of Hong Kong, to introduce the hall to prospective residents, showcase the qualities of hall life, highlights of past hall events in terms of blog posts, information on rules and regulations.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
       technologies: ['JavaScript', 'HTML', 'CSS'],
-      githubUrl: '#',
-      featured: true,
+      githubUrl: 'https://github.com/ishfaqmalik441/jcac-website',
+      showGitHubButton: true,
     },
     {
       title: 'Tornado Intensity Prediction Tool',
       description: 'This predictive model was built to predict tornado intensity levels to aide aide emergency services to quickly assess the severity of reported tornadoes and make appropriate logistical decisions and warning system that can minimize the impact of a tornado.',
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop',
       technologies: ['R', 'Logistic Regression', 'Linear Discriminant Analaysis', 'Quadratic Discriminant Analysis', 'Classification Trees', 'Cross-Validations Tests', 'Microsoft Excel'],
-      githubUrl: '#',
-      featured: true,
+      githubUrl: 'https://github.com/ishfaqmalik441',
+      showGitHubButton: false,
     },
   ];
 
@@ -54,17 +54,12 @@ const ProjectsSection = () => {
         <div className="grid gap-8">
           {/* Featured Projects - Large Cards */}
           <div className="grid lg:grid-cols-2 gap-8">
-            {projects.filter(project => project.featured).map((project, index) => (
+            {projects.map((project, index) => (
               <Card 
                 key={index}
                 className="group bg-gradient-card shadow-card hover-lift transition-smooth overflow-hidden"
               >
                 <div className="relative overflow-hidden">
-                  {/* <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-smooth group-hover:scale-105"
-                  /> */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
                 </div>
                 <CardHeader>
@@ -73,7 +68,7 @@ const ProjectsSection = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed" style={{minHeight: 155}}>
                     {project.description}
                   </p>
                   
@@ -88,8 +83,6 @@ const ProjectsSection = () => {
                       </Badge>
                     ))}
                   </div>
-
-                  <div className="flex gap-3 pt-2">
                     {/* <Button 
                       size="sm"
                       asChild
@@ -100,18 +93,21 @@ const ProjectsSection = () => {
                         Live Demo
                       </a>
                     </Button> */}
-                    <Button 
-                      size="sm"
-                      variant="outline"
-                      asChild
-                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth hover:scale-105"
-                    >
-                      <a href={project.githubUrl}>
-                        <Github className="mr-2 h-4 w-4" />
-                        Code
-                      </a>
-                    </Button>
-                  </div>
+                    {project.showGitHubButton && (
+                      <div className="flex gap-3 pt-2">
+                        <Button 
+                          size="sm"
+                          variant="outline"
+                          asChild
+                          className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-smooth hover:scale-105"
+                        >
+                          <a href={project.githubUrl} target='_blank'>
+                            <Github className="mr-2 h-4 w-4" />
+                            Code
+                          </a>
+                        </Button>
+                      </div>
+                    )}
                 </CardContent>
               </Card>
             ))}

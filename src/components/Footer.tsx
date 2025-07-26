@@ -5,9 +5,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:your-email@example.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/ishfaqmalik441', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ishfaq-malik-46bb7a201/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:ishfaqmalik441@gmail.com', label: 'Email' },
   ];
 
   const scrollToTop = () => {
@@ -38,7 +38,7 @@ const Footer = () => {
                 asChild
                 className="hover:text-primary hover:bg-primary/10 transition-smooth hover:scale-110"
               >
-                <a href={social.href} aria-label={social.label}>
+                <a href={social.href} aria-label={social.label} target='_blank'>
                   <social.icon className="h-5 w-5" />
                 </a>
               </Button>

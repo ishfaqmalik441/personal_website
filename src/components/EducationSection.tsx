@@ -21,15 +21,9 @@ const EducationSection = () => {
         'C++ Programming','Data Structures','Machine Learning','R Programming', 'Regression Analysis', 'Calculus and Linear Algebra',
         'Discrete Mathematics', 'Digital Currency and Blockchain Development'
       ],
+      schoolLink: 'https://prog.cb.cityu.edu.hk/academics/cfft',
     },
   ];
-
-  // const certifications = [
-  //   'AWS Certified Solutions Architect',
-  //   'Google Cloud Professional Developer',
-  //   'Certified Kubernetes Administrator',
-  //   'MongoDB Certified Developer',
-  // ];
 
   return (
     <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/5">
@@ -44,7 +38,7 @@ const EducationSection = () => {
         </div>
 
         {/* Education */}
-        <div className="space-y-8 mb-16">
+        <div className="space-y-8 mb-8">
           {education.map((edu, index) => (
             <Card 
               key={index} 
@@ -60,8 +54,8 @@ const EducationSection = () => {
                       <CardTitle className="text-xl text-foreground">
                         {edu.degree}
                       </CardTitle>
-                      <p className="text-lg font-semibold text-primary mt-1">
-                        {edu.school}
+                      <p className="text-lg font-semibold text-primary mt-1 hover:text-link underline">
+                        <a href={edu.schoolLink} target='_blank'>{edu.school}</a>
                       </p>
                     </div>
                   </div>
@@ -125,7 +119,6 @@ const EducationSection = () => {
             </Card>
           ))}
         </div>
-
         {/* Certifications */}
         {/* <Card className="bg-gradient-card shadow-card">
           <CardHeader>

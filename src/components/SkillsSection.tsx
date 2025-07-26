@@ -80,13 +80,15 @@ const SkillsSection = () => {
   ];
 
   const tools = [
-    'Git', 'GitHub', 'VS Code', 'Cursor', 'Postman', 'Jira', 'Slack', 
-     'Vite', 'Trello', 'Confluence'
+    'Git', 'GitHub', 'GitHub Actions', 'GitHub Pages', 'PowerBI',
+    'VS Code', 'Cursor', 'Postman', 'Jira', 'Slack', 
+    ,'Trello', 'Confluence', 'Microsoft Excel', 'Microsoft Powerpoint',
   ];
 
   const softSkills = [
-    'Interpersonal Skills','Communication', 'Problem Solving', 'Team Leadership', 'Project Management',
-    'Code Review', 'Mentoring', 'Technical Writing'
+    'Interpersonal Skills','Communication', 'Problem Solving', 'Teamwork',
+    'Criticial Thinking','Collaboration','Team Leadership', 'Project Management',
+    'Code Review', 'Technical Writing'
   ];
 
   return (
@@ -190,12 +192,13 @@ const SkillsSection = () => {
         <Card className="mt-8 bg-gradient-card shadow-card">
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold mb-4 text-gradient">
-              Continuous Learning & Growth
+              My Code Of Life
             </h3>
             <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              I'm passionate about staying current with emerging technologies and best practices. 
-              Currently exploring AI/ML integration, WebAssembly, and advanced cloud architectures. 
-              Always eager to take on new challenges and expand my skill set.
+              From my time here, I hope to have a positive impact on the world and the people around me no matter
+              how small it might be. I deeply enjoy building things, taking on challenges, and learning new knowledge about
+              any topic in the world (especially tech). My aim is use this knowledge and skills I possess, to make this world a bit
+              nicer place to live in.
             </p>
           </CardContent>
         </Card>

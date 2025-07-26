@@ -7,6 +7,7 @@ const ExperienceSection = () => {
     {
       title: 'Payments Intern',
       company: 'Hero Plus Group',
+      companyLink: 'https://www.heroplusgroup.com/',
       location: 'Hong Kong',
       period: 'Jun 2025 - Present',
       description: 
@@ -19,6 +20,7 @@ const ExperienceSection = () => {
     {
       title: 'Full Stack Developer Intern',
       company: 'PerformVE Limited',
+      companyLink: 'https://www.performve.com/',
       location: 'Hong Kong',
       period: 'Jul 2024 - Sep 2024',
       description: 
@@ -31,6 +33,7 @@ const ExperienceSection = () => {
     {
       title: 'Web Development Intern',
       company: 'Deploifai Limited',
+      companyLink: 'https://github.com/deploifai',
       location: 'Hong Kong',
       period: 'Jul 2023 - Sep 2023',
       description: 
@@ -43,6 +46,7 @@ const ExperienceSection = () => {
     {
       title: 'Financial Technology Intern',
       company: 'Lahore Fashions Limited',
+      companyLink: 'https://lahorefashions.com/index.html',
       location: 'Lahore, Pakistan',
       period: 'Jun 2022 - Aug 2022',
       description: 
@@ -78,8 +82,10 @@ const ExperienceSection = () => {
                     <CardTitle className="text-xl text-foreground">
                       {experience.title}
                     </CardTitle>
-                    <p className="text-lg font-semibold text-primary mt-1">
-                      {experience.company}
+                    <p className="text-lg font-semibold text-primary mt-1 underline hover:text-link">
+                      <a href={experience.companyLink} target='_blank'>
+                        {experience.company}
+                      </a>
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-2 text-sm text-muted-foreground">
