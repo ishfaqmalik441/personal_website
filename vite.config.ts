@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  base: '/personal_website/',
   plugins: [
     react(),
   ].filter(Boolean),
