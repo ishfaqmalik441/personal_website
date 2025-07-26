@@ -1,0 +1,55 @@
+name: Build and Deploy Personal Website to GitHub Pages
+
+# Trigger on pushes to main or manual dispatch
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read           # for checkout
+  pages: write             # to deploy to Pages
+  id-token: write          # if you use OIDC or environments
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 1. Checkout the code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Use Node.js and cache dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      # 3. Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Build the Vite app
+      - name: Build
+        run: npm run build
+
+      # 5. Prepare GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 6. Upload the dist folder as an artifact
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      # 7. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
