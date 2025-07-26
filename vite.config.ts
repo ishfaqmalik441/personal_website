@@ -8,7 +8,7 @@ export default defineConfig(({ command }) => ({
     host: "::",
     port: 8080,
   },
-  base: command === 'serve' ? '/' : '/personal_website/',
+  base: '/personal_website/',
   plugins: [
     react(),
   ].filter(Boolean),
